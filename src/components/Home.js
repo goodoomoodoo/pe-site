@@ -67,7 +67,8 @@ class Home extends React.Component
                     }
                 </div>
 
-                { this.state.rendered && this.state.currentUser === null && <Login /> || <Main /> } 
+                { this.state.rendered && this.state.currentUser === null && <Login /> } 
+                { this.state.rendered && this.state.currentUser !== null && <Main /> }
                 
             </div>
         )
