@@ -1,21 +1,23 @@
 import React from "react"
-import { Link } from "gatsby"
+import firebase from '@firebase/app';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Home from '../components/Home';
+
+var config = {
+  apiKey: "AIzaSyA2bK-xJlvbmE-3W512FAnvgSXr_7VmVWA",
+  authDomain: "simpleuser-3e64f.firebaseapp.com",
+  databaseURL: "https://simpleuser-3e64f.firebaseio.com",
+  projectId: "simpleuser-3e64f",
+  storageBucket: "simpleuser-3e64f.appspot.com",
+  messagingSenderId: "156409682561"
+};
+
+firebase.initializeApp(config);
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  <div>
+    <Home />
+  </div>
 )
 
 export default IndexPage

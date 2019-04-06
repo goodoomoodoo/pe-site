@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@firebase/app": "^0.3.14",
+    "@firebase/auth": "^0.9.7",
     "gatsby": "^2.3.5",
     "gatsby-image": "^2.0.37",
     "gatsby-plugin-manifest": "^2.0.26",
@@ -16,6 +18,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-excel-renderer": "^1.1.0",
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {

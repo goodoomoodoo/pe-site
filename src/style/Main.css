@@ -1,0 +1,97 @@
+.Main {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 8em;
+    height: 50em;
+}
+
+.Main-container {
+    position: relative;
+    width: 50em;
+    height: 40em;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5em auto auto 10em;
+    grid-template-rows: 2.875em auto;
+}
+
+.Main-container h3 {
+    margin: .3em;
+}
+
+.Main-grid {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    box-shadow: 0 0 1px currentColor;
+    overflow-y: scroll;
+    padding: 0;
+    height: auto;
+}
+
+.Main-grid::-webkit-scrollbar {
+    width: .5em;
+}
+
+.Main-grid::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+.Main-grid::-webkit-scrollbar-thumb {
+    border-radius: .5em;
+    background-color: #ccc;
+}
+
+.Main-grid::-webkit-scrollbar {
+    width: .5em;
+}
+
+.Main-action {
+    position: relative;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    padding-top: 1em;
+}
+
+.Main-button {
+    margin-right: 1em;
+    opacity: .8;
+}
+
+.Main-button:hover {
+    opacity: 1;
+    background-color: #f3f3f0;
+    cursor: pointer;
+}
+
+.Main-set {
+    list-style-type: none;
+    padding: .1em;
+    padding-top: .5em;
+}
+
+.Main-set input {
+    display: inline-block;
+    margin-left: 3em;
+    margin-right: 8em;
+    width: 9em;
+    line-height: 1.5em;
+    border-radius: .3em;
+    border: 1px solid #ccc;
+}
+
+.Main-set h3:first-child {
+    font-size: 1em;
+    font-weight: 100;
+    display: inline-block;
+    width: 3.3em;
+}
+
+.Main-error {
+    position: absolute;
+    font-size: 1.125em;
+    font-weight: 100;
+    padding-left: 3em;
+    display: inline-block;
+}
