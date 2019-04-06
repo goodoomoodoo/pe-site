@@ -25,9 +25,10 @@ class Home extends React.Component
 
     componentWillMount()
     {
-        firebase.default.auth().onAuthStateChanged( user => {
-            this.setState({ rendered: true, currentUser: user });
-        });
+        if(typeof window !== "undefined")
+            firebase.default.auth().onAuthStateChanged( user => {
+                this.setState({ rendered: true, currentUser: user });
+            });
 
         console.log( this.state.rendered );
     }
