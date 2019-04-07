@@ -4,7 +4,8 @@ import '@firebase/auth';
 
 import Login from './Login';
 import Main from './Main';
-import Footer from './Footer';
+import About from './About';
+import { Switch, Route, NavLink } from 'react-router-dom';
 
 import '../style/Home.css';
 
@@ -63,12 +64,21 @@ class Home extends React.Component
                                     </ul>
                                 </div>
                             }
+
+                            
                         </div>
                     }
+                    <div className='Home-about'>
+                        <NavLink to='/about'>About</NavLink>
+                    </div>
                 </div>
 
-                { this.state.rendered && this.state.currentUser === null && <Login /> } 
-                { this.state.rendered && this.state.currentUser !== null && <Main /> }
+                <Switch>
+                    { this.state.rendered && this.state.currentUser === null && <Route exact path='/' component={Login} /> } 
+                    { this.state.rendered && this.state.currentUser !== null && <Route exact path='/' component={Main} /> }
+                    <Route path='/about' component={About} />
+                </Switch>
+                
                 
             </div>
         )

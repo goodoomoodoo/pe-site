@@ -7,7 +7,6 @@
   "dependencies": {
     "@firebase/app": "^0.3.14",
     "@firebase/auth": "^0.9.7",
-    "dotenv": "^7.0.0",
     "gatsby": "^2.3.5",
     "gatsby-image": "^2.0.37",
     "gatsby-plugin-manifest": "^2.0.26",
@@ -20,7 +19,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-excel-renderer": "^1.1.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
     "prettier": "^1.16.4"
