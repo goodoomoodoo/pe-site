@@ -33,7 +33,8 @@ For the upload to work, make sure all the variable names in your excel sheets ar
 
 ## Try it here!!!
 
-:point_up: When you log in, I will be able to see you through firebase, but I don't really care. (Probably never gonna check :laughing: )
+:point_up: When you log in, I will be able to see you through firebase, but I don't really care. ( Probably never gonna check :laughing: )
 
-* [Visit here.](https://hungry-ptolemy-fd0d43.netlify.com/) [![Netlify Status](https://api.netlify.com/api/v1/badges/b61ff62f-31e6-4e09-94ad-4118f6e7dd89/deploy-status)](https://app.netlify.com/sites/hungry-ptolemy-fd0d43/deploys)
+* [Visit here.](https://hungry-ptolemy-fd0d43.netlify.com/) 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b61ff62f-31e6-4e09-94ad-4118f6e7dd89/deploy-status)](https://app.netlify.com/sites/hungry-ptolemy-fd0d43/deploys)
 
