@@ -64,12 +64,16 @@ class Home extends React.Component
                                     </ul>
                                 </div>
                             }
-
-                            
                         </div>
                     }
-                    <div className='Home-about'>
-                        <NavLink to='/about'>About</NavLink>
+
+                    <div className='Home-link'>
+                        <NavLink to='/'><h3>{ this.state.currentUser === null ? 'Login' : 'Home' }</h3></NavLink>
+                    </div>
+                    
+
+                    <div className='Home-link'>
+                        <NavLink to='/about'><h3>About</h3></NavLink>
                     </div>
                 </div>
 
