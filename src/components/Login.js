@@ -25,13 +25,16 @@ class Login extends React.Component
     {
         return (
             <div className='Login'>
+            
                 <div className='Login-form'>
                     <h1 className='Login-title'>Percent Error</h1>
                     <h2 className='Login-subtitle'>Login</h2>
                     <p className='Login-description'>I'm broke, so login is required to limit user and cloud funtion call</p>
                     <button className='Login-button' onClick={ this.handleLogin }>Google user come thru</button>
-                </div>
-                <Footer/>
+                </div>                
+
+                <Footer />
+
             </div>
         );
     }

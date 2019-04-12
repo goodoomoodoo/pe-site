@@ -1,0 +1,56 @@
+.Intro-logo {
+    position: absolute;
+    width: 100%;
+    margin-top: 8em;
+    height: 40em;
+    text-align: center;
+    background-image: linear-gradient( to bottom, white, white, rgba( 0, 0, 0, .02) 99.8% );
+}
+
+.Intro-logo h1 {
+    font-size: 6em;
+    letter-spacing: .1em;
+}
+
+.Intro-logo h3 {
+    font-size: 2.5em;
+}
+
+.Intro-about {
+    position: absolute;
+    width: 100%;
+    top: 48em;
+    background-image: linear-gradient( to bottom, white, white, rgba( 0, 0, 0, .02) 99.8% );
+}
+
+.Intro-about-grid {
+    position: relative;
+    width: 90%;
+    max-width: 60em;
+    margin: 0 auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1em;
+}
+
+.Intro-about-grid-item {
+    padding: 1em;
+    box-shadow: 0 0 2px currentColor;
+    border-radius: .5em;
+}
+
+.Intro-join {
+    position: absolute;
+    width: 100%;
+    top: 70em;
+    padding-bottom: 5em;
+    text-align: center;
+    background-image: linear-gradient( to bottom, white, white, rgba( 0, 0, 0, .02) 99.8% );
+}
+
+.Intro-join button {
+    font-size: 1.5em;
+    color: currentColor;
+}

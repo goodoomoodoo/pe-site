@@ -4,8 +4,8 @@ import '@firebase/auth';
 
 import Login from './Login';
 import Main from './Main';
-import About from './About';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import Intro from './Intro';
+import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 
 import '../style/Home.css';
 
@@ -67,23 +67,20 @@ class Home extends React.Component
                         </div>
                     }
 
-                    <div className='Home-link'>
-                        <NavLink to='/'><h3>{ this.state.currentUser === null ? 'Login' : 'Home' }</h3></NavLink>
-                    </div>
+                    {
+                        this.state.currentUser === null &&
+                        <div className='Home-link'>
+                            <NavLink to='/login'><h3>Login</h3></NavLink>
+                        </div>
+                    }
                     
-
-                    <div className='Home-link'>
-                        <NavLink to='/about'><h3>About</h3></NavLink>
-                    </div>
                 </div>
 
                 <Switch>
-                    { this.state.rendered && this.state.currentUser === null && <Route exact path='/' component={Login} /> } 
+                    { this.state.rendered && this.state.currentUser === null && <Route exact path='/' component={Intro} /> } 
                     { this.state.rendered && this.state.currentUser !== null && <Route exact path='/' component={Main} /> }
-                    <Route path='/about' component={About} />
+                    { this.state.rendered && this.state.currentUser === null && <Route path='/login' component={Login} />}
                 </Switch>
-                
-                
             </div>
         )
     }
