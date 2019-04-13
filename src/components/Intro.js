@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Link } from 'gatsby';
+import Footer from './Footer';
+
 import '../style/Intro.css';
 
 class Intro extends React.Component
@@ -28,8 +31,11 @@ class Intro extends React.Component
 
                 <div className='Intro-join'>
                     <h2>Type in some numbers and experience the convenience of receiving instant answer</h2>
-                    <button>Login and Try It Now</button>
+                    <Link to='/Login'><button>Login and Try It Now</button></Link>
                 </div>
+
+                <div className='Intro-footer'><Footer /></div>
+                
             </div>
         );
     }

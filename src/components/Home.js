@@ -2,10 +2,10 @@ import React from 'react';
 import * as firebase from '@firebase/app';
 import '@firebase/auth';
 
-import Login from './Login';
 import Main from './Main';
 import Intro from './Intro';
-import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { Link } from 'gatsby';
+import { Switch, Route } from 'react-router-dom';
 
 import '../style/Home.css';
 
@@ -70,17 +70,15 @@ class Home extends React.Component
                     {
                         this.state.currentUser === null &&
                         <div className='Home-link'>
-                            <NavLink to='/login'><h3>Login</h3></NavLink>
+                            <Link to='/Login'><h3>Login</h3></Link>
                         </div>
                     }
                     
                 </div>
 
-                <Switch>
-                    { this.state.rendered && this.state.currentUser === null && <Route exact path='/' component={Intro} /> } 
-                    { this.state.rendered && this.state.currentUser !== null && <Route exact path='/' component={Main} /> }
-                    { this.state.rendered && this.state.currentUser === null && <Route path='/login' component={Login} />}
-                </Switch>
+                { this.state.rendered && this.state.currentUser === null && <Intro /> } 
+                { this.state.rendered && this.state.currentUser !== null && <Main /> }
+            
             </div>
         )
     }

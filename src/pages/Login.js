@@ -2,7 +2,8 @@ import React from 'react';
 import * as firebase from '@firebase/app';
 import '@firebase/auth';
 
-import Footer from './Footer';
+import { Link, navigate, replace } from 'gatsby';
+import Footer from '../components/Footer';
 
 import '../style/Login.css';
 
@@ -14,7 +15,7 @@ class Login extends React.Component
 
         firebase.default.auth().signInWithPopup( provider )
           .then( result => {
-              console.log( 'Hello' + result.user.displayName + '.' );
+              navigate( '/', { replace: true } );
           })
           .catch( e => {
               console.log( e );
@@ -25,7 +26,9 @@ class Login extends React.Component
     {
         return (
             <div className='Login'>
-            
+
+                <div className='Login-back'><Link to='/'><h3>&#8249; Back</h3></Link></div>
+
                 <div className='Login-form'>
                     <h1 className='Login-title'>Percent Error</h1>
                     <h2 className='Login-subtitle'>Login</h2>
