@@ -2,7 +2,6 @@ import React from "react"
 import firebase from '@firebase/app';
 
 import Helmet from 'react-helmet';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from '../components/Home';
 
@@ -19,10 +18,10 @@ var config = {
 firebase.initializeApp(config);
 
 const IndexPage = () => (
-  <Router>
+  <div>
     <Helmet title='PNation' defer={false} />
-    <Route path='/' component={Home} />
-  </Router>
+    <Home />
+  </div>
 )
 
 export default IndexPage

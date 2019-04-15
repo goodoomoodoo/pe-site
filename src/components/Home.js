@@ -5,7 +5,6 @@ import '@firebase/auth';
 import Main from './Main';
 import Intro from './Intro';
 import { Link } from 'gatsby';
-import { Switch, Route } from 'react-router-dom';
 
 import '../style/Home.css';
 
