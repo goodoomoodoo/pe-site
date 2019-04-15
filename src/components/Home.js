@@ -2,9 +2,9 @@ import React from 'react';
 import * as firebase from '@firebase/app';
 import '@firebase/auth';
 
-import Login from './Login';
 import Main from './Main';
-import Footer from './Footer';
+import Intro from './Intro';
+import { Link } from 'gatsby';
 
 import '../style/Home.css';
 
@@ -65,11 +65,19 @@ class Home extends React.Component
                             }
                         </div>
                     }
+
+                    {
+                        this.state.currentUser === null &&
+                        <div className='Home-link'>
+                            <Link to='/Login'><h3>Login</h3></Link>
+                        </div>
+                    }
+                    
                 </div>
 
-                { this.state.rendered && this.state.currentUser === null && <Login /> } 
+                { this.state.rendered && this.state.currentUser === null && <Intro /> } 
                 { this.state.rendered && this.state.currentUser !== null && <Main /> }
-                
+            
             </div>
         )
     }

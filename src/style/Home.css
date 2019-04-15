@@ -24,6 +24,7 @@
     font-size: 1.375em;
     margin-left: .5em;
     display: inline-block;
+    color: #555;
 }
 
 .Home-profile {
@@ -72,4 +73,11 @@
     list-style-type: none;
     box-shadow: 0 0 2px currentColor;
     border-radius: .3em;
+}
+
+.Home-link {
+    float: right;
+    margin-right: 1em;
+    text-decoration: none;
+    color: currentColor;
 }
