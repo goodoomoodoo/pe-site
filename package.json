@@ -7,6 +7,9 @@
   "dependencies": {
     "@firebase/app": "^0.3.14",
     "@firebase/auth": "^0.9.7",
+    "@firebase/functions": "^0.4.4",
+    "file-saver": "^2.0.1",
+    "firebase": "^5.9.4",
     "gatsby": "^2.3.5",
     "gatsby-image": "^2.0.37",
     "gatsby-plugin-manifest": "^2.0.26",

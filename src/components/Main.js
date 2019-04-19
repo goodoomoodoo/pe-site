@@ -1,6 +1,10 @@
 import React from 'react';
+import firebase from '@firebase/app';
+import FileSaver from 'file-saver';
+import '@firebase/functions';
 
 import Upload from './Upload';
+import Download from './Download';
 import Footer from './Footer';
 
 import '../style/Main.css';
@@ -17,17 +21,25 @@ class Main extends React.Component
             reading: [ '' ],
             calc: [ '' ],
             uploadButtonText: 'Upload',
-            isUploaded: false
+            downloadButtonText: 'Download',
+            isUploaded: false,
+            showUploadWindow: false,
+            showDownloadWindow: false,
+            fname: 'new file'
         };
 
         this.handleAddSet = this.handleAddSet.bind( this );
         this.handleInput = this.handleInput.bind( this );
+        this.handleDownload = this.handleDownload.bind( this );
         this.handleUpload = this.handleUpload.bind( this );
+        this.handleSubmit = this.handleSubmit.bind( this );
         this.displayErrorMessage = this.displayErrorMessage.bind( this );
         this.setStateCalc = this.setStateCalc.bind( this );
         this.setStateReading = this.setStateReading.bind( this );
         this.setStateCounts = this.setStateCounts.bind( this );
         this.setStateUploaded = this.setStateUploaded.bind( this );
+        this.setFilename = this.setFilename.bind( this );
+        this.setDownloadWindowFalse = this.setDownloadWindowFalse.bind( this );
     }
 
     componentDidUpdate()
@@ -57,8 +69,7 @@ class Main extends React.Component
             setArray: [ ...this.state.setArray, this.state.setCount + 1 ],
             setCount: this.state.setCount + 1,
             reading: rtemp,
-            calc: ctemp,
-            showUploadWindow: false,
+            calc: ctemp
         });
     }
 
@@ -84,9 +95,30 @@ class Main extends React.Component
     handleUpload()
     {
         this.setState({
-            showUploadWindow: !this.state.showUploadWindow, 
-            uploadButtonText: this.state.showUploadWindow ? 'Upload' : 'Close'
+            showUploadWindow: !this.state.showUploadWindow,
+            uploadButtonText: this.state.showUploadWindow ? 'Upload' : 'Close',
+            showDownloadWindow: false,
+            downloadButtonText: 'Download'
         });
+    }
+
+    handleDownload()
+    {
+        this.setState({ 
+            showDownloadWindow: !this.state.showDownloadWindow, 
+            downloadButtonText: this.state.showDownloadWindow ? 'Download' : 'Cancel',
+            showUploadWindow: false,
+            uploadButtonText: 'Upload'
+        });
+    }
+
+    // Triggered in Download Comp
+    handleSubmit()
+    {
+        //firebase.functions().httpsCallable('helloWorld')().then( res => { console.log( res ) } );
+        let blob = new Blob( ["hello"], { type: 'text/plain' } );
+        let url = URL.createObjectURL( blob );
+        FileSaver.saveAs( url, this.state.fname );
     }
 
     // Created to be passed into child comp.: reading setter
@@ -95,13 +127,13 @@ class Main extends React.Component
         this.setState({ reading: arrayRead });
     }
 
-    // Created to be passed into child comp.
+    // Created to be passed into child comp. Upload
     setStateCalc( arrayCalc )
     {
         this.setState({ calc: arrayCalc });
     }
 
-    // Created to be passed into child comp.
+    // Created to be passed into child comp. Upload
     setStateCounts( size )
     {
         let arr = [ 1 ];
@@ -115,10 +147,21 @@ class Main extends React.Component
         });
     }
 
-    // Created to be passed into child comp.
+    // Created to be passed into child comp. Upload
     setStateUploaded()
     {
         this.setState({ isUploaded: true });
+    }
+
+    // Created to be passed into child comp. Download
+    setFilename( text )
+    {
+        this.setState({ fname: text });
+    }
+
+    setDownloadWindowFalse()
+    {
+        this.setState({ showDownloadWindow: false, downloadButtonText: 'Download' } );
     }
 
     /**
@@ -184,11 +227,15 @@ class Main extends React.Component
                 <div className='Main-action'>
                     <button className='Main-button' onClick={ this.handleAddSet }>Add</button>
                     <button className='Main-button' onClick={ this.handleUpload }>{this.state.uploadButtonText}</button>
-                    <button className='Main-button' onClick={ this.handleSubmit }>Download</button>
+                    <button className='Main-button' onClick={ this.handleDownload }>{this.state.downloadButtonText}</button>
                 </div>
 
-                { this.state.showUploadWindow && <Upload setCalcValue={this.setStateCalc} setReadingValue={this.setStateReading}
+                { this.state.showUploadWindow && <Upload setCalcValue={this.setStateCalc} 
+                    setReadingValue={this.setStateReading}
                     setCountValue={this.setStateCounts} setUploaded={this.setStateUploaded}/> }
+
+                { this.state.showDownloadWindow && <Download fname={this.state.fname} setFilename={this.setFilename} 
+                    setDownloadWindowFalse={this.setDownloadWindowFalse} handleSubmit={this.handleSubmit}/> }
 
                 <Footer />
             </div>
